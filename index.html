@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma surpresa ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.card {
+  background: rgba(255,255,255,0.18);
+  padding: 25px;
+  border-radius: 25px;
+  margin-top: 25px;
+  backdrop-filter: blur(10px);
+}
+
+button {
+  border: none;
+  padding: 15px 22px;
+  margin: 10px;
+  border-radius: 30px;
+  background: white;
+  color: #ff4f81;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.surpresa {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,.2);
+  border-radius: 20px;
+  animation: aparecer .5s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.coracao {
+  position: fixed;
+  bottom: -30px;
+  font-size: 25px;
+  animation: subir 5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>💗 Uma surpresa para você 💗</h1>
+
+  <div class="card">
+    <p>
+      Eu preparei uma coisinha para você...
+      mas você vai ter que descobrir as surpresas 👀❤️
+    </p>
+
+    <button onclick="mostrar('s1')">
+      💌 Primeira surpresa
+    </button>
+
+    <button onclick="mostrar('s2')">
+      👀 Tem outra...
+    </button>
+
+    <button onclick="mostrar('s3')">
+      🥰 Mais uma?
+    </button>
+
+    <button onclick="mostrar('s4')">
+      😂 Aperta esse
+    </button>
+
+    <button onclick="mostrar('s5')">
+      ❤️ ÚLTIMA SURPRESA
+    </button>
+
+    <div id="s1" class="surpresa">
+      <h2>💌 Uma mensagem</h2>
+      <p>
+        Só queria te lembrar que você é uma pessoa muito especial
+        para mim. ❤️
+      </p>
+    </div>
+
+    <div id="s2" class="surpresa">
+      <h2>👀 Pegadinha!</h2>
+      <p>
+        Você realmente achou que eu ia colocar tudo de uma vez? 😂❤️
+      </p>
+    </div>
+
+    <div id="s3" class="surpresa">
+      <h2>🥰 Outra mensagem</h2>
+      <p>
+        Espero que esse pequeno presente consiga arrancar
+        pelo menos um sorriso seu. 💗
+      </p>
+    </div>
+
+    <div id="s4" class="surpresa">
+      <h2>😂 Você caiu!</h2>
+      <p>
+        Não tinha como deixar um botão sem uma surpresa né? KKKK
+      </p>
+    </div>
+
+    <div id="s5" class="surpresa">
+      <h2>❤️ Para você</h2>
+      <p>
+        Eu te amo muito. Obrigado por fazer parte da minha vida.
+        Espero que você nunca esqueça o quanto é importante para mim. 💗
+      </p>
+      <p>🌹 Com carinho, de alguém que ama você.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function mostrar(id) {
+  document.getElementById(id).style.display = "block";
+
+  for (let i = 0; i < 5; i++) {
+    const coracao = document.createElement("div");
+    coracao.className = "coracao";
+    coracao.innerHTML = "❤️";
+    coracao.style.left = Math.random() * 100 + "vw";
+    coracao.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(coracao);
+
+    setTimeout(() => {
+      coracao.remove();
+    }, 6000);
+  }
+}
+</script>
+
+</body>
+</html>
