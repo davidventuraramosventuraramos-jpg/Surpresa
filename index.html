@@ -3,191 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uma surpresa ❤️</title>
+<title>Para você ❤️</title>
 
 <style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  text-align: center;
-  min-height: 100vh;
-  overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at top, #ff4f91, transparent 35%),
+        linear-gradient(135deg, #18001f, #57002f, #a00058);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container {
-  padding: 50px 20px;
-  max-width: 600px;
-  margin: auto;
+/* Corações */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 25px;
+    animation: float 7s linear infinite;
+    opacity: 0;
+}
+
+.heart:nth-child(1) { left: 5%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; animation-delay: 1.5s; }
+.heart:nth-child(3) { left: 40%; animation-delay: 3s; }
+.heart:nth-child(4) { left: 60%; animation-delay: .7s; }
+.heart:nth-child(5) { left: 80%; animation-delay: 2.5s; }
+.heart:nth-child(6) { left: 95%; animation-delay: 4s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(.5) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Cartão */
+.card {
+    width: 90%;
+    max-width: 520px;
+    padding: 35px 25px;
+    text-align: center;
+
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+
+    animation: entrance 1.2s ease;
+}
+
+@keyframes entrance {
+    from {
+        opacity: 0;
+        transform: scale(.8) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.big-heart {
+    font-size: 65px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
 }
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
+    font-size: 38px;
+    margin: 10px 0 20px;
 }
 
-p {
-  font-size: 19px;
-  line-height: 1.6;
+.message {
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-.card {
-  background: rgba(255,255,255,0.18);
-  padding: 25px;
-  border-radius: 25px;
-  margin-top: 25px;
-  backdrop-filter: blur(10px);
+.highlight {
+    font-size: 23px;
+    font-weight: bold;
+    margin: 25px 0;
 }
 
+.signature {
+    margin-top: 30px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* Brilho */
+.glow {
+    text-shadow:
+        0 0 8px #fff,
+        0 0 18px #ff4f91,
+        0 0 30px #ff4f91;
+}
+
+/* Botão */
 button {
-  border: none;
-  padding: 15px 22px;
-  margin: 10px;
-  border-radius: 30px;
-  background: white;
-  color: #ff4f81;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #a00058;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
 }
 
-button:active {
-  transform: scale(.95);
-}
-
-.surpresa {
-  display: none;
-  margin-top: 20px;
-  padding: 20px;
-  background: rgba(255,255,255,.2);
-  border-radius: 20px;
-  animation: aparecer .5s ease;
-}
-
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.coracao {
-  position: fixed;
-  bottom: -30px;
-  font-size: 25px;
-  animation: subir 5s linear forwards;
-  pointer-events: none;
-}
-
-@keyframes subir {
-  to {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
-  }
+button:hover {
+    transform: scale(1.08);
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="hearts">
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💘</div>
+</div>
 
-  <h1>💗 Uma surpresa para você 💗</h1>
+<div class="card">
 
-  <div class="card">
-    <p>
-      Eu preparei uma coisinha para você...
-      mas você vai ter que descobrir as surpresas 👀❤️
-    </p>
+    <div class="big-heart">❤️</div>
 
-    <button onclick="mostrar('s1')">
-      💌 Primeira surpresa
-    </button>
+    <h1 class="glow">Obrigado, mulher.</h1>
 
-    <button onclick="mostrar('s2')">
-      👀 Tem outra...
-    </button>
+    <div class="message">
 
-    <button onclick="mostrar('s3')">
-      🥰 Mais uma?
-    </button>
+        <p class="highlight">
+            Obrigado por aceitar o Andony como nosso filho. 🥹❤️
+        </p>
 
-    <button onclick="mostrar('s4')">
-      😂 Aperta esse
-    </button>
+        <p>
+            Eu queria deixar isso aqui registrado porque,
+            mesmo parecendo uma coisa simples, significa muito
+            para mim.
+        </p>
 
-    <button onclick="mostrar('s5')">
-      ❤️ ÚLTIMA SURPRESA
-    </button>
+        <p>
+            Obrigado por estar comigo, por fazer parte da minha vida
+            e por aceitar o Andony nessa nossa história. ❤️
+        </p>
 
-    <div id="s1" class="surpresa">
-      <h2>💌 Uma mensagem</h2>
-      <p>
-        Só queria te lembrar que você é uma pessoa muito especial
-        para mim. ❤️
-      </p>
+        <p>
+            Espero que a gente continue vivendo muitos momentos juntos,
+            dando risada das coisas mais aleatórias, passando pelos
+            momentos difíceis e criando nossas próprias lembranças.
+        </p>
+
+        <p>
+            Você é uma pessoa muito especial para mim,
+            e eu sou muito feliz por ter você ao meu lado.
+        </p>
+
+        <p class="highlight">
+            Eu, você e o Andony. ❤️
+        </p>
+
+        <p class="signature">
+            Obrigado por tudo, mulher. 💗
+        </p>
+
     </div>
 
-    <div id="s2" class="surpresa">
-      <h2>👀 Pegadinha!</h2>
-      <p>
-        Você realmente achou que eu ia colocar tudo de uma vez? 😂❤️
-      </p>
-    </div>
+    <button onclick="surpresa()">
+        Clique aqui ❤️
+    </button>
 
-    <div id="s3" class="surpresa">
-      <h2>🥰 Outra mensagem</h2>
-      <p>
-        Espero que esse pequeno presente consiga arrancar
-        pelo menos um sorriso seu. 💗
-      </p>
-    </div>
-
-    <div id="s4" class="surpresa">
-      <h2>😂 Você caiu!</h2>
-      <p>
-        Não tinha como deixar um botão sem uma surpresa né? KKKK
-      </p>
-    </div>
-
-    <div id="s5" class="surpresa">
-      <h2>❤️ Para você</h2>
-      <p>
-        Eu te amo muito. Obrigado por fazer parte da minha vida.
-        Espero que você nunca esqueça o quanto é importante para mim. 💗
-      </p>
-      <p>🌹 Com carinho, de alguém que ama você.</p>
-    </div>
-
-  </div>
 </div>
 
 <script>
-function mostrar(id) {
-  document.getElementById(id).style.display = "block";
+function surpresa() {
+    for (let i = 0; i < 25; i++) {
 
-  for (let i = 0; i < 5; i++) {
-    const coracao = document.createElement("div");
-    coracao.className = "coracao";
-    coracao.innerHTML = "❤️";
-    coracao.style.left = Math.random() * 100 + "vw";
-    coracao.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(coracao);
+        const heart = document.createElement("div");
 
-    setTimeout(() => {
-      coracao.remove();
-    }, 6000);
-  }
+        heart.innerHTML = ["❤️","💖","💕","💗","💘"][Math.floor(Math.random()*5)];
+
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (20 + Math.random()*35) + "px";
+        heart.style.zIndex = "999";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        heart.animate(
+            [
+                {
+                    transform: "translateY(0) scale(.5)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                    `translateY(-110vh) translateX(${(Math.random()-0.5)*300}px) scale(1.5)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 2500 + Math.random()*2000,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => heart.remove(), 5000);
+    }
+
+    alert("Obrigado por fazer parte da nossa história. ❤️");
 }
 </script>
 
